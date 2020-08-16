@@ -1,0 +1,25 @@
+{
+  "name": "NDRA",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "format": "prettier  --config ./.prettierrc.json --write \"src/**/*.js",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IDONTSUDO/NDRA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IDONTSUDO/NDRA/issues"
+  },
+  "homepage": "https://github.com/IDONTSUDO/NDRA#readme",
+  "devDependencies": {
+    "rollup": "^2.26.2"
+  }
+}
