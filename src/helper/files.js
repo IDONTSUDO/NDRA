@@ -1,8 +1,5 @@
 const { readdir, stat, readFile, writeFile } = require("fs").promises
 const { join } = require('path');
-
-
-
 const SystemCarriage = process.platform === 'win32' ? '\r\n' : '\n';
 
 /**@description  получение всех файлов в директории 
@@ -83,10 +80,17 @@ exports.FilesSearch = async (pathDir, file, regExp) => {
   return regularExp.test(result)
 }
 
-function debugLog() {
-  // todo
-}
 
+
+
+
+
+/**@description  рекурсивно заменяет строки по алгоритму
+ * @param { NewData } String
+ * @param { ReplaceStr } String
+ * @param { regExp } String
+ * @return { NewData } String
+ */
 function dataReplace(NewData, regExp, ReplaceStr) {
   const regularExp = new RegExp(regExp)
   if (regularExp.test(NewData)) {
@@ -96,3 +100,4 @@ function dataReplace(NewData, regExp, ReplaceStr) {
     return NewData
   }
 }
+exports.dataReplace = dataReplace
