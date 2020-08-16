@@ -2,6 +2,7 @@ const { readdir, stat, readFile, writeFile, appendFile } = require("fs").promise
 const { join } = require('path');
 
 
+
 const SystemCarriage = process.platform === 'win32' ? '\r\n' : '\n';
 
 /**@description  получение всех файлов в директории 
@@ -51,8 +52,22 @@ exports.getDirs = async (pathDir, ignore) => {
   }
   return returnDirs
 }
-exports.WriteFilesImportOfReplaceRegExp = (pathDir, file, impStr) => {
-  const fileResult = join(pathDir, file);
+
+/**@description  основная функция замены кода по файлам
+ * @param { pathDir } String
+ * @param { file } String
+ * @param { regExp } String
+ * @param { ReplaceStr } String
+ * @param { impStr } String
+ * @return { Boolean }
+ */
+exports.WriteFilesImportOfReplaceRegExpAddings = ReplaceFun
+async function ReplaceFun(pathDir, file, regExp, ReplaceStr, impStr) {
+  const fileResult = join(pathDir, file)
+  const FileData = await readFile(fileResult, "utf8")
+  const result = FileData.padStart(1, `${impStr}${SystemCarriage}`)
+  // const Appened = dataReplace(result,regExp,impStr,ReplaceStr)
+  console.log(dataReplace(result, regExp, ReplaceStr))
 }
 
 /**@description  поиск подходящих файлов  
@@ -66,4 +81,18 @@ exports.FilesSearch = async (pathDir, file, regExp) => {
   const fileSearchPath = join(pathDir, file);
   const result = await readFile(fileSearchPath, "utf8")
   return regularExp.test(result)
+}
+
+function debugLog() {
+
+}
+
+function dataReplace(NewData, regExp, ReplaceStr) {
+  const regularExp = new RegExp(regExp)
+  if (regularExp.test(NewData)) {
+    const resultReplaceStr = NewData.replace(regularExp, ReplaceStr)
+    return dataReplace(resultReplaceStr, regExp, ReplaceStr)
+  } else {
+    return NewData
+  }
 }
