@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon ./src/index.js",
     "format": "prettier  --config ./.prettierrc.json --write \"src/**/*.js",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "mocha  ./src/test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,11 @@
   },
   "homepage": "https://github.com/IDONTSUDO/NDRA#readme",
   "devDependencies": {
-    "rollup": "^2.26.2"
+    "rollup": "^2.26.2",
+    "chai": "^4.2.0",
+    "eslint-plugin-node": "^11.1.0",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.0.5"
   }
 }

@@ -3,16 +3,15 @@ const path = require('path');
 const {getFiles,FilesSearch,WriteFilesImportOfReplaceRegExpAddings} = require('./helper/files')
 
 
-console.log(200)
-
 const VALUES = {
     importPath:'',
     searchRegExp:'console.log(.+?)+',
     ignore:['.git','coverage'],
-    replaceStr:'its works'
+    replaceStr:'test'
 }
 const mainApp = async () => {
     const appDir = path.dirname(require.main.filename);
+    console.log(appDir)
     const ingoreDir = VALUES.ignore
     const p = await getFiles(appDir,ingoreDir)
     

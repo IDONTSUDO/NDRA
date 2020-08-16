@@ -1,0 +1,9 @@
+{
+    "ignore":[".git","coverage"],
+    "regExp":"console.log(.+?)+",
+    "watch":"src/",
+    "replaceStr":"test",
+    "importPath":"C:\/Users\/user\/Desktop\/NDRA\/src",
+    "importValue":"const p = require",
+    "debugLog":"RegExp"
+}

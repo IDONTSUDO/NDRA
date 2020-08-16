@@ -1,4 +1,4 @@
-const { readdir, stat, readFile, writeFile, appendFile } = require("fs").promises
+const { readdir, stat, readFile, writeFile } = require("fs").promises
 const { join } = require('path');
 
 
@@ -84,7 +84,7 @@ exports.FilesSearch = async (pathDir, file, regExp) => {
 }
 
 function debugLog() {
-
+  // todo
 }
 
 function dataReplace(NewData, regExp, ReplaceStr) {
